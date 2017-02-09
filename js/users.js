@@ -5,9 +5,9 @@ var app = new Vue({
     message: 'Hello Vue!'
   },
 
-  mounted:function(){
-        this.getAllUsers() //method1 will execute at pageload
-  },
+ // mounted:function(){
+       // this.getAllUsers() //method1 will execute at pageload
+  //},
   
   methods: {
     getAllUsers: function () {
