@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="users.html">Users</a></li>
-              <li><a href="aliances.html">Aliances</a></li>
+              <li><a href="alliances.html">Alliances</a></li>
               <li class="active"><a href="characters.html">Characters<span class="sr-only">(current)</span></a></li>
             </ul>
   
@@ -44,9 +44,35 @@
         </div><!-- /.container-fluid -->
       </nav>
 
+      <div id="characters">
+        <table class="table">
+          <thead class="thead-inverse">
+            <th>ID</th>
+            <th>Name</th>
+            <th>ID de l'user</th>
+            <th>Classe</th>
+            <th>Position X</th>
+            <th>Position Y</th>
+          </thead>
+          <tbody>
+            <tr v-for="character in characters" v-on:click="goToCharacterById(character.id)">
+              <td> {{ character.id }}</td>
+              <td> {{ character.name }}</td>
+              <td> {{ character.user_id }}</td>
+              <td> {{ character.class }}</td>
+              <td> {{ character.position.x }}</td>
+              <td> {{ character.position.y }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/vue.js"></script>
+      <script type="text/javascript" src="js/vue-resource.min.js"></script>
+      <script type="text/javascript" src="js/characters.js"></script>
     </body>
     </html>

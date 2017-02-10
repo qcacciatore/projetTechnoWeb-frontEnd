@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Index</title>
+  <title>Alliances</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="users.html">Users</a></li>
-              <li><a href="alliances.html">Alliances</a></li>
+              <li class="active"><a href="alliances.html">Alliances<span class="sr-only">(current)</span></a></li>
               <li><a href="characters.html">Characters</a></li>
             </ul>
   
@@ -44,8 +44,19 @@
         </div><!-- /.container-fluid -->
       </nav>
 
-      <div id="users">
-        
+      <div id="alliances">
+        <table class="table">
+          <thead class="thead-inverse">
+            <th>ID</th>
+            <th>Name</th>
+          </thead>
+          <tbody>
+            <tr v-for="alliance in alliances" v-on:click="goToAllianceById(alliance.id)">
+              <td> {{ alliance.id }}</td>
+              <td> {{ alliance.name }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -54,6 +65,6 @@
       <script src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/vue.js"></script>
       <script type="text/javascript" src="js/vue-resource.min.js"></script>
-      <script type="text/javascript" src="js/users.js"></script>
+      <script type="text/javascript" src="js/alliances.js"></script>
     </body>
     </html>

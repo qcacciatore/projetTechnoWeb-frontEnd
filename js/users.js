@@ -1,8 +1,9 @@
 var app = new Vue({
-  el: '#app',
+  el: '#users',
   
   data: {
     users: {},
+    userId: {},
   },
 
   mounted:function(){
@@ -14,6 +15,18 @@ var app = new Vue({
 	    this.$http.get('http://localhost:3000/users').then(function(response) {
 	        // Success
 	        this.users = response.body;
+	    }, function(response) {
+	        // Failure
+	        //this.loginError = response.body.data; //recuparation of JSON login error
+	    });
+	},
+
+	goToUserById: function(id) {
+		this.$http.get('http://localhost:3000/users/'+ id).then(function(response) {
+	        // Success
+	        window.location = "userId.html";
+	        this.userId = response.body;
+	        localStorage.setItem("userId", this.userId.id);
 	    }, function(response) {
 	        // Failure
 	        //this.loginError = response.body.data; //recuparation of JSON login error
