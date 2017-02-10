@@ -21,6 +21,29 @@ var app = new Vue({
 	    });
 	},
 
+	deleteUser: function() {
+		this.$http.delete('http://localhost:3000/users/'+ localStorage.getItem("userId")).then(function(response) {
+	        // Success
+	        alert("User deleted :)");
+	        window.location = "users.html";
+	        
+	    }, function(response) {
+	        // Failure
+	        //this.loginError = response.body.data; //recuparation of JSON login error
+	    });
+	},
+
+	createUser: function() {
+		this.$http.post('http://localhost:3000/users/'+ localStorage.getItem("userId")).then(function(response) {
+	        // Success
+	        this.userId = response.body;
+	        
+	    }, function(response) {
+	        // Failure
+	        //this.loginError = response.body.data; //recuparation of JSON login error
+	    });
+	},
+
 	test: function() {
 		alert("Test");
 	}

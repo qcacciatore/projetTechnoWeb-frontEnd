@@ -40,8 +40,10 @@
         <center>
           <h1>{{ userId.name }}</h1>
           <h3>{{ userId.email}}</h3>
-          <h3>Alliance : {{ userId.alliance_id }}</h3>
+          <h3>Alliance : {{ userId.alliance_id }}</h3><br><br><br>
+          <button type="button" class="btn btn-danger" v-on:click="deleteUser()">Delete {{ userId.name }}</button>
         </center>
+
       </div>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
