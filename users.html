@@ -45,7 +45,22 @@
       </nav>
 
       <div id="app">
-        <button v-on:click="getAllUsers()" type="button" class="btn btn-primary">Get all users</button>
+        <table class="table">
+          <thead class="thead-inverse">
+            <th>id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Alliance</th>
+          </thead>
+          <tbody>
+            <tr v-for="user in users">
+              <td> {{ user.id }}</td>
+              <td> {{ user.name }}</td>
+              <td> {{ user.email }}</td>
+              <td> {{ user.alliance_id }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
