@@ -41,7 +41,8 @@
           <h1>{{ characterId.name }}</h1>
           <h3>{{ characterId.class }}</h3>
           <h3>Position en X : {{ characterX }}</h3>
-          <h3>Position en Y : {{ characterY }}</h3>
+          <h3>Position en Y : {{ characterY }}</h3><br><br><br>
+          <button type="button" class="btn btn-danger" v-on:click="deleteCharacter()">Delete {{ characterId.name }}</button>
         </center>
       </div>
 

@@ -15,9 +15,21 @@ var app = new Vue({
 	getCharacterById: function(id) {
 		this.$http.get('http://localhost:3000/characters/'+ localStorage.getItem("characterId")).then(function(response) {
 	        // Success
-	        this.characterId = response.body;
+	        this.characterId = response.body.character;
 	        this.characterX = this.characterId.position.x;
 	        this.characterY = this.characterId.position.y;
+	        
+	    }, function(response) {
+	        // Failure
+	        //this.loginError = response.body.data; //recuparation of JSON login error
+	    });
+	},
+
+	deleteCharacter: function() {
+		this.$http.delete('http://localhost:3000/characters/'+ localStorage.getItem("characterId")).then(function(response) {
+	        // Success
+	        alert("Character deleted :)");
+	        window.location = "characters.html";
 	        
 	    }, function(response) {
 	        // Failure

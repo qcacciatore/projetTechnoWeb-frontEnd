@@ -13,7 +13,7 @@ var app = new Vue({
 	getUserById: function(id) {
 		this.$http.get('http://localhost:3000/users/'+ localStorage.getItem("userId")).then(function(response) {
 	        // Success
-	        this.userId = response.body;
+	        this.userId = response.body.user;
 	        
 	    }, function(response) {
 	        // Failure
@@ -26,17 +26,6 @@ var app = new Vue({
 	        // Success
 	        alert("User deleted :)");
 	        window.location = "users.html";
-	        
-	    }, function(response) {
-	        // Failure
-	        //this.loginError = response.body.data; //recuparation of JSON login error
-	    });
-	},
-
-	createUser: function() {
-		this.$http.post('http://localhost:3000/users/'+ localStorage.getItem("userId")).then(function(response) {
-	        // Success
-	        this.userId = response.body;
 	        
 	    }, function(response) {
 	        // Failure

@@ -45,6 +45,21 @@
       </nav>
 
       <div id="users">
+        <div class="form-inline">
+          <label class="sr-only" for="inlineFormInput">Name</label>
+          <input type="text" v-model="userAdd.user.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name" required>
+
+          <label class="sr-only" for="inlineFormInputGroup">Email</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon">@</div>
+            <input type="text" v-model="userAdd.user.email" class="form-control" id="inlineFormInputGroup" placeholder="Email" required>
+          </div>
+
+          <label class="sr-only" for="inlineFormInput">Alliance ID</label>
+          <input type="text" v-model="userAdd.user.alliance_id" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Alliance ID" required>
+
+          <button type="submit" v-on:click="addUser()" class="btn btn-primary">Add</button>
+        </div>
         <table class="table">
           <thead class="thead-inverse">
             <th>id</th>

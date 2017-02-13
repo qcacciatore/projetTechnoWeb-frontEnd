@@ -45,6 +45,28 @@
       </nav>
 
       <div id="characters">
+        <div class="form-inline">
+          <label class="sr-only" for="inlineFormInput">Name</label>
+          <input type="text" v-model="characterAdd.character.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name" required>
+
+          <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+          <select v-model="characterAdd.character.class" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" placeholder="Class">
+            <option>warrior</option>
+            <option>thief</option>
+            <option>mage</option>
+          </select>
+
+          <label class="sr-only" for="inlineFormInput">User ID</label>
+          <input type="text" v-model="characterAdd.character.user_id" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="User ID" required>
+
+          <label class="sr-only" for="inlineFormInput">Pos. X</label>
+          <input type="text" v-model="characterAdd.character.position.x" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Pos. X" required>
+
+          <label class="sr-only" for="inlineFormInput">Pos. Y</label>
+          <input type="text" v-model="characterAdd.character.position.y" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Pos. Y" required>
+
+          <button type="submit" v-on:click="addCharacter()" class="btn btn-primary">Add</button>
+        </div>
         <table class="table">
           <thead class="thead-inverse">
             <th>ID</th>

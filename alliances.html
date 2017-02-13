@@ -45,6 +45,13 @@
       </nav>
 
       <div id="alliances">
+        <div class="form-inline">
+          <label class="sr-only" for="inlineFormInput">Name</label>
+          <input type="text" v-model="allianceAdd.alliance.name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Name" required>
+
+          <button type="submit" v-on:click="addAlliance()" class="btn btn-primary">Add</button>
+        </div>
+        
         <table class="table">
           <thead class="thead-inverse">
             <th>ID</th>
