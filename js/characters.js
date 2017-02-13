@@ -4,6 +4,7 @@ var app = new Vue({
   data: {
     characters: {},
     characterId: {},
+    errorAdd: null,
     characterAdd: {
 		character: {
       		name: '',
@@ -47,12 +48,17 @@ var app = new Vue({
 	addCharacter: function () {
 	    this.$http.post('http://localhost:3000/characters', this.characterAdd).then(function(response) {
 	        // Success
-	        this.getAllCharacters();
-	        this.characterAdd.character.name = null;
-	        this.characterAdd.character.user_id = null;
-	        this.characterAdd.character.class = null;
-	        this.characterAdd.character.position.x = null;
-	        this.characterAdd.character.position.y = null;
+	        if(response.body.name == "error"){
+	        	this.errorAdd = "Please submit relevant data";
+	        }else{
+	        	this.getAllCharacters();
+	        	this.characterAdd.character.name = null;
+	        	this.characterAdd.character.user_id = null;
+	        	this.characterAdd.character.class = null;
+	        	this.characterAdd.character.position.x = null;
+	        	this.characterAdd.character.position.y = null;
+	        	this.errorAdd = null;
+	        }
 	    }, function(response) {
 	        // Failure
 	        console.log("failed");

@@ -3,6 +3,7 @@ var app = new Vue({
   
   data: {
     users: {},
+    errorAdd: null,
     userId: {},
     userAdd: {
 		user : {
@@ -43,13 +44,18 @@ var app = new Vue({
 	addUser: function () {
 	    this.$http.post('http://localhost:3000/users', this.userAdd).then(function(response) {
 	        // Success
-	        this.getAllUsers();
-	        this.userAdd.user.name = null;
-	        this.userAdd.user.email = null;
-	        this.userAdd.user.alliance_id = null;
+	        if(response.body.name == "error"){
+	        	this.errorAdd = "Please submit relevant data";
+	        }else{
+	        	this.getAllUsers();
+	        	this.userAdd.user.name = null;
+	        	this.userAdd.user.email = null;
+	        	this.userAdd.user.alliance_id = null;
+	        	this.errorAdd = null;
+	        }
 	    }, function(response) {
 	        // Failure
-	        console.log("failed");
+	        this.errorAdd = "Please submit relevant data";
 	    });
 	},
 
