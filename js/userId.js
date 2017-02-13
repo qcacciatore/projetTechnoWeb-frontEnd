@@ -15,10 +15,18 @@ var app = new Vue({
 	        // Success
 	        this.userId = response.body.user;
 	        
-	    }, function(response) {
-	        // Failure
-	        //this.loginError = response.body.data; //recuparation of JSON login error
-	    });
+	    this.$http.get('http://localhost:3000/alliances').then(function(response){
+				for (var j = response.body.alliances.length - 1; j >= 0; j--) {
+					if(this.userId.alliance_id == response.body.alliances[j].id)
+						this.userId.alliance_id = response.body.alliances[j].name;
+				};
+	    	}, function(response) {
+	        	// Failure
+	    	});
+
+		}, function(response){
+            	//Failure
+            });
 	},
 
 	deleteUser: function() {
