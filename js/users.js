@@ -23,10 +23,20 @@ var app = new Vue({
 	    this.$http.get('http://localhost:3000/users').then(function(response) {
 	        // Success
 	        this.users = response.body.users;
-	    }, function(response) {
-	        // Failure
-	        //this.loginError = response.body.data; //recuparation of JSON login error
-	    });
+	    this.$http.get('http://localhost:3000/alliances').then(function(response){
+			for (var i = this.users.length - 1; i >= 0; i--) {
+				for (var j = response.body.alliances.length - 1; j >= 0; j--) {
+					if(this.users[i].alliance_id == response.body.alliances[j].id)
+						this.users[i].alliance_id = response.body.alliances[j].name;
+				};
+			};
+	    	}, function(response) {
+	        	// Failure
+	    	});
+
+		}, function(response){
+            	//Failure
+            });
 	},
 
 	goToUserById: function(id) {

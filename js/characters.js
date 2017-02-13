@@ -27,10 +27,21 @@ var app = new Vue({
 	    this.$http.get('http://localhost:3000/characters').then(function(response) {
 	        // Success
 	        this.characters = response.body.characters;
-	    }, function(response) {
-	        // Failure
-	        //this.loginError = response.body.data; //recuparation of JSON login error
-	    });
+
+			this.$http.get('http://localhost:3000/users').then(function(response){
+			for (var i = this.characters.length - 1; i >= 0; i--) {
+				for (var j = response.body.users.length - 1; j >= 0; j--) {
+					if(this.characters[i].user_id == response.body.users[j].id)
+						this.characters[i].user_id = response.body.users[j].name;
+				};
+			};
+	    	}, function(response) {
+	        	// Failure
+	    	});
+
+		}, function(response){
+            	//Failure
+            });
 	},
 
 	goToCharacterById: function(id) {

@@ -30,10 +30,18 @@ var app = new Vue({
     			map: map,
     			title: 'Position of the character'
   			});
-	    }, function(response) {
-	        // Failure
-	        //this.loginError = response.body.data; //recuparation of JSON login error
-	    });
+	    	this.$http.get('http://localhost:3000/users').then(function(response){
+				for (var j = response.body.users.length - 1; j >= 0; j--) {
+					if(this.characterId.user_id == response.body.users[j].id)
+						this.characterId.user_id = response.body.users[j].name;
+				};
+	    	}, function(response) {
+	        	// Failure
+	    	});
+
+		}, function(response){
+            	//Failure
+            });
 	},
 
 	deleteCharacter: function() {
