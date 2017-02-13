@@ -59,7 +59,12 @@
           <input type="text" v-model="userAdd.user.alliance_id" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Alliance ID" required>
 
           <button type="submit" v-on:click="addUser()" class="btn btn-primary">Add</button>
+
+          <div class="alert alert-danger" v-if= "errorAdd" role="alert">
+            <strong>Damn</strong> Be sure to submit relevant data.
+          </div>
         </div>
+
         <table class="table">
           <thead class="thead-inverse">
             <th>id</th>

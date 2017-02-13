@@ -66,6 +66,10 @@
           <input type="text" v-model="characterAdd.character.position.y" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Pos. Y" required>
 
           <button type="submit" v-on:click="addCharacter()" class="btn btn-primary">Add</button>
+
+          <div class="alert alert-danger" v-if= "errorAdd" role="alert">
+            <strong>Damn</strong> Be sure to submit relevant data.
+          </div>
         </div>
         <table class="table">
           <thead class="thead-inverse">

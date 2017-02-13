@@ -41,7 +41,8 @@
           <h1>{{ characterId.name }}</h1>
           <h3>{{ characterId.class }}</h3>
           <h3>Position en X : {{ characterX }}</h3>
-          <h3>Position en Y : {{ characterY }}</h3><br><br><br>
+          <h3>Position en Y : {{ characterY }}</h3><br>
+          <div id="googleMap" style="width:75%;height:400px;"></div><br><br>
           <button type="button" class="btn btn-danger" v-on:click="deleteCharacter()">Delete {{ characterId.name }}</button>
         </center>
       </div>
@@ -53,5 +54,7 @@
       <script type="text/javascript" src="js/vue.js"></script>
       <script type="text/javascript" src="js/vue-resource.min.js"></script>
       <script type="text/javascript" src="js/characterId.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaU0GUnZH5tqrnrRp1UecAHjOtxNyDrTs"></script>
+    
     </body>
     </html>
